@@ -52,8 +52,8 @@ a.dtm.t <- t(a.dtm) #try with all of the words, not removing sparse terms
 #Now we produce the model
 
 lda10 <- LDA(a.dtm.sp.t.tdif,10) # generate a LDA model with 10 topics
-lda5 <- LDA(a.dtm.sp.t.tdif,5) # generate a LDA model with 10 topics
-lda50 <- LDA(a.dtm.sp.t.tdif,50) # generate a LDA model with 10 topics
+## lda5 <- LDA(a.dtm.sp.t.tdif,5) # generate a LDA model with 10 topics
+## lda50 <- LDA(a.dtm.sp.t.tdif,50) # generate a LDA model with 10 topics
 get_terms(lda10, 10) # get keywords for each topic, just for a quick look
 get_topics(lda10, 5) # gets topic numbers per document
 lda_topics<-get_topics(lda10, 5) #creat object with top 5 topics per document
