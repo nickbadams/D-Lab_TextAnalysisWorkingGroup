@@ -2,7 +2,8 @@
 
 library(topicmodels)
 library(tm)
-setwd("/home/My Documents/D-Lab/textanalysis_workshop/R/")
+#### instead of using setwd(), start the script by changing to the correct directory first
+## setwd("/home/My Documents/D-Lab/textanalysis_workshop/R/")
 newspaper_text <-read.csv("ceos_newyorktimes_data.csv", header=TRUE) #read in CSV file
 m <- list(Content="TEXT")
 myReader <- readTabular(mapping=m)
