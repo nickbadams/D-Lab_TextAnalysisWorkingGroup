@@ -10,7 +10,7 @@ myReader <- readTabular(mapping=m)
 (a <- Corpus(DataframeSource(newspaper_text), readerControl = list(reader = myReader))) #create corpus containing the text column, on line per document
 
 ######Alternative way to create corpus if you have separate documents. Put them all in one folder, then point to that directory:
-a <- Corpus(DirSource("/home/My Documents/D-Lab/textanalysis_workshop/R/ceos_newyorktimes_files"))
+## a <- Corpus(DirSource("/home/My Documents/D-Lab/textanalysis_workshop/R/ceos_newyorktimes_files"))
 ########
 
 summary(a) #should tell you how many documents are in your corpus
