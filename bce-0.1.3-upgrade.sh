@@ -11,7 +11,9 @@ repos <- 'http://cran.cnr.berkeley.edu'
 pkgs <- c("SnowballC", "slam", "modeltools")
 install.packages(pkgs, repos = repos)
 EOF
-wget http://cran.r-project.org/src/contrib/Archive/tm/tm_0.5-10.tar.gz
-wget http://cran.r-project.org/src/contrib/Archive/topicmodels/topicmodels_0.2-0.tar.gz
-sudo R CMD INSTALL tm_0.5-10.tar.gz
-sudo R CMD INSTALL topicmodels_0.2-0.tar.gz
+(cd /tmp;
+ wget -N http://cran.r-project.org/src/contrib/Archive/tm/tm_0.5-10.tar.gz
+ wget -N http://cran.r-project.org/src/contrib/Archive/topicmodels/topicmodels_0.2-0.tar.gz
+ sudo R CMD INSTALL tm_0.5-10.tar.gz
+ sudo R CMD INSTALL topicmodels_0.2-0.tar.gz
+)
