@@ -8,7 +8,7 @@ sudo apt-get install -y r-recommended libgsl0-dev git-cola
 sudo rm -rf /usr/local/lib/R/site-library/tm /usr/local/lib/R/site-library/topicmodels
 sudo R --vanilla <<EOF
 repos <- 'http://cran.cnr.berkeley.edu'
-pkgs <- c("SnowballC", "slam", "modeltools")
+pkgs <- c("devtools", "packrat", "SnowballC", "slam", "modeltools", "gsubfn", "stringr", "dplyr")
 install.packages(pkgs, repos = repos)
 EOF
 (cd /tmp;
