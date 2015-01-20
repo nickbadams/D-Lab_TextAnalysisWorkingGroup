@@ -1,6 +1,6 @@
-We're going to use a library called 'tm', and another called 'topic models'
-#install.package("tm")
-#install.package("topicmodels")
+#We're going to use a library called 'tm', and another called 'topic models'
+#install.packages("tm")
+#install.packages("topicmodels")
 library(tm)
 
 #### instead of using 'setwd()' function, start by finding the file in the bottom right quadrant of R Studio
@@ -34,18 +34,18 @@ a <- tm_map(a, removeNumbers)
 a <- tm_map(a, removeWords, stopwords("english"))
 
 library(SnowballC) # needed for stemming function
-a <- tm_map(a, stemDocument, language = "english") # converts terms to tokens
+# converts terms to tokens
 a.tdm <- TermDocumentMatrix(a, control=list(minDocFreq = 2)) #convert to term document matrix, words have to be in at least minDocFreq to appear, I set it to 2 (must appear in at least 2 documents), but you can change this.
-inspect(a.tdm[1:10,1:10]) # have a quick look at the term document matrix
+inspect(a.tdm[1:10,1:20]) # have a quick look at the term document matrix
 findFreqTerms(a.tdm, lowfreq=200) # have a look at common words... play around with this
 nrow(a.tdm) #number of unique words in corpus
 findAssocs(a.tdm, 'includ', 0.25) # find associated words and strength of the common words.play around with this
 a.tdm.sp <- removeSparseTerms(a.tdm, sparse=0.987) #remove sparse terms, maybe not necessary, sometimes is. Play around with this if you're not getting good output.
 a.tdm.sp.df <- as.data.frame(inspect(a.tdm.sp)) # convert term document matrix to data frame
-nrow(a.dtm.sp.df) # check to see how many words we're left
+nrow(a.tdm.sp.df) # check to see how many words we're left
 
 require(slam)
-a.dtm.sp. <- t(a.tdm.sp) # transpose term document matrix into document term matrix
+a.dtm.sp.t <- t(a.tdm.sp) # transpose term document matrix into document term matrix
 
 
 require(topicmodels)
@@ -54,8 +54,8 @@ require(topicmodels)
 #TO TOPIC MODELING!!
 #############################
 lda10 <- LDA(a.dtm.sp.t,10) # generate a LDA model with 10 topics
-## lda5 <- LDA(a.tdm.sp.df,5) # generate a LDA model with 10 topics
-## lda50 <- LDA(a.tdm.sp.df,50) # generate a LDA model with 10 topics
+## lda5 <- LDA(a.dtm.sp.t,5) # generate a LDA model with 10 topics
+## lda50 <- LDA(a.dtm.sp.t,50) # generate a LDA model with 10 topics
 
 #############################
 #BEGIN INTERPRETATION
